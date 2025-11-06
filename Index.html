@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Skywalker 🌿 | Official Website</title>
+
+<style>
+:root{
+  --bg:#070707;
+  --panel:#0f0f0f;
+  --gold1:#b8860b;
+  --gold2:#ffd36b;
+  --muted:#bfbfbf;
+  --accent: linear-gradient(90deg,var(--gold1),var(--gold2));
+  --glass: rgba(255,255,255,0.03);
+  --card: #0b0b0b;
+  --maxw:1100px;
+  --radius:14px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.6);
+  font-synthesis: none;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(255,214,120,0.02), transparent),
+              radial-gradient(1000px 500px at 90% 90%, rgba(184,134,11,0.02), transparent),
+              var(--bg);
+  color:#eee;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+  padding-bottom:40px;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:12px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:1000;
+  display:flex;
+  gap:18px;
+  align-items:center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:8px 14px;
+  border-radius:999px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  border:1px solid rgba(255,215,0,0.06);
+}
+.logo-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  background: conic-gradient(from 120deg at 50% 50%, rgba(255,215,0,0.06), rgba(255,215,0,0.14));
+  border: 2px solid rgba(255,215,0,0.18);
+  box-shadow: 0 4px 12px rgba(184,134,11,0.12), inset 0 1px 0 rgba(255,255,255,0.02);
+  position:relative;
+  overflow:visible;
+}
+.logo-badge svg{width:28px;height:28px;display:block;filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6))}
+nav a{
+  color:var(--muted);
+  text-decoration:none;
+  font-weight:600;
+  padding:6px 8px;
+  transition: all 220ms ease;
+  font-size:15px;
+}
+nav a:hover{
+  color:var(--gold2);
+  transform:translateY(-2px);
+  text-shadow:0 4px 18px rgba(255,215,0,0.12);
+}
+
+/* Layout container */
+.container{ max-width:var(--maxw); margin:110px auto 40px; padding:18px; }
+
+/* Header / hero */
+.header {
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  padding:36px;
+  border-radius:var(--radius);
+  display:flex;
+  gap:24px;
+  align-items:center;
+  box-shadow: var(--shadow);
+  border:1px solid rgba(255,255,255,0.02);
+}
+.avatar{
+  min-width:140px;
+  min-height:140px;
+  width:140px;
+  height:140px;
+  border-radius:24px;
+  background: linear-gradient(135deg,var(--gold1),var(--gold2));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 10px 30px rgba(184,134,11,0.12);
+  border: 3px solid rgba(255,255,255,0.04);
+  position:relative;
+  overflow:hidden;
+}
+.avatar .initials{
+  font-size:48px;
+  font-weight:900;
+  color:#111;
+  letter-spacing:2px;
+  text-shadow:0 2px 0 rgba(255,255,255,0.12);
+  font-family: "Segoe UI", Roboto, system-ui;
+}
+.avatar::after{
+  content:"";
+  position:absolute;
+  bottom:8px;
+  right:8px;
+  width:36px;height:36px;border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.18), rgba(255,255,255,0.02));
+  border:1px solid rgba(0,0,0,0.05);
+  display:block;
+}
+.hero-text{ flex:1; text-align:left; color:#f5efe0; }
+.hero-title{
+  font-size:22px;
+  font-weight:800;
+  color:var(--gold2);
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.hero-sub{
+  margin-top:8px;
+  color: #e6e0d6;
+  font-size:15px;
+}
+.typing {
+  display:inline-block;
+  border-right:2px solid rgba(255,215,0,0.85);
+  padding-right:6px;
+  margin-left:4px;
+  animation: blinkCursor 900ms steps(1) infinite;
+}
+@keyframes blinkCursor{50%{border-color:transparent}}
+
+/* Sections */
+.section{
+  margin-top:28px;
+  padding:20px;
+  border-radius:12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+  border:1px solid rgba(255,255,255,0.02);
+  box-shadow: 0 6px 22px rgba(0,0,0,0.6);
+}
+.section h2{
+  margin-bottom:12px;
+  color:var(--gold2);
+  font-size:20px;
+}
+.grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+.card, .project{
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+  padding:14px;
+  border-radius:10px;
+  border:1px solid rgba(255,215,0,0.04);
+  text-align:left;
+}
+.card p, .project p{ color:#ddd; font-size:15px; }
+.btn{
+  display:inline-flex; gap:10px; align-items:center; padding:10px 14px;
+  background:var(--gold1); color:#0b0b0b; border-radius:10px; font-weight:700;
+  text-decoration:none; border: none; cursor:pointer; transition: all 220ms ease;
+  box-shadow: 0 8px 30px rgba(184,134,11,0.12);
+}
+.btn:hover{ transform: translateY(-3px); filter:brightness(1.02); }
+.gold-shimmer{
+  background: linear-gradient(90deg, rgba(255,255,255,0.00), rgba(255,255,255,0.12), rgba(255,255,255,0.00));
+  background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: shimmer 3.5s linear infinite;
+}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.contact-form input, .contact-form textarea{
+  width:100%; padding:10px; margin:8px 0; border-radius:8px; border:1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.015); color: #fff;
+}
+.contact-form button{ margin-top:6px }
+.socials{ display:flex; gap:12px; align-items:center; justify-content:center; margin-top:12px; flex-wrap:wrap }
+.socials a{ display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--muted);
+  padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.02);
+  background: rgba(255,255,255,0.01);
+}
+.socials a svg{ width:20px; height:20px; display:block; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.6)) }
+footer{
+  margin-top:30px; padding:18px; text-align:center; color:#f5efe0; opacity:0.95;
+  border-radius:10px; max-width:var(--maxw); margin-left:auto; margin-right:auto;
+}
+@media (max-width:720px){
+  .header{flex-direction:column; align-items:center; text-align:center}
+  .hero-text{ text-align:center }
+  .avatar{ width:120px;height:120px;border-radius:12px }
+  nav{ gap:10px; padding:6px 8px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo-badge" href="#home" aria-label="Skywalker badge">
+    <svg viewBox="0 0 100 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="g1" x1="0" x2="1">
+        <stop offset="0" stop-color="#b8860b"/>
+        <stop offset="1" stop-color="#ffd36b"/>
+      </linearGradient></defs>
+      <circle cx="50" cy="50" r="46" fill="url(#g1)" stroke="#482f06" stroke-width="3"/>
+      <text x="50" y="56" font-size="42" font-family="Segoe UI, Roboto, Arial" text-anchor="middle" fill="#0b0b0b" font-weight="900">SK</text>
+    </svg>
+  </a>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#hobbies">Hobbies</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+  <div class="header" id="home">
+    <div class="avatar"><div class="initials">SK</div></div>
+    <div class="hero-text">
+      <div class="hero-title">
+        <span class="gold-shimmer">Skywalker</span>
+        <span style="font-size:12px;color:var(--muted);font-weight:700;padding-left:8px;">• Student & Web Creator</span>
+      </div>
+      <div style="margin-top:10px;">
+        <div style="font-size:18px;color:#efe9d8;">
+          I build neat, calm digital spaces with a touch of gold.
+          <span class="typing" id="typeTarget"></span>
+        </div>
+        <div class="hero-sub">Growing knowledge, skills, and dreams — one day at a time.</div>
+        <div style="margin-top:16px; display:flex; gap:12px; align-items:center;">
+          <button class="btn" id="downloadCvBtn" title="Download CV">Download CV</button>
+          <a class="btn" href="#projects" style="background:transparent;color:var(--gold2);border:1px solid rgba(255,215,0,0.18);">View Projects</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About, Skills, Hobbies, Projects, Contact sections omitted for brevity; reuse your HTML from above -->
+
+</div>
+
+<footer>
+  <div style="max-width:var(--maxw);margin:0 auto;padding:6px 10px">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+      <div>© 2025 Skywalker | All Rights Reserved</div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <a class="btn" id="cvOpen" href="#" style="background:transparent;color:var(--gold2);border:1px solid rgba(255,215,0,0.12)">Preview CV</a>
+        <a class="btn" href="#" id="shareBtn" style="background:transparent;color:var(--gold2);border:1px solid rgba(255,215,0,0.12)">Share</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Typing animation
+  const phrases = [
+    "Student • Learner • Builder",
+    "Nature lover • Future developer",
+    "Calm design. Golden standards."
+  ];
+  let tIndex = 0, char = 0;
+  const typeTarget = document.getElementById('typeTarget');
+  function typeLoop() {
+    const txt = phrases[tIndex];
+    if (!typeTarget) return;
+    if (char <= txt.length) {
+      typeTarget.textContent = txt.slice(0, char);
+      char++;
+      setTimeout(typeLoop, 60);
+    } else setTimeout(deleteLoop, 1100);
+  }
+  function deleteLoop() {
+    const txt = phrases[tIndex];
+    if (char >= 0) {
+      typeTarget.textContent = txt.slice(0, char);
+      char--;
+      setTimeout(deleteLoop, 30);
+    } else {
+      tIndex = (tIndex + 1) % phrases.length;
+      setTimeout(typeLoop, 350);
+    }
+  }
+  typeLoop();
+
+  // Contact form
+  function handleContact(e){
+    e.preventDefault();
+    const name = document.getElementById('name')?.value.trim();
+    const email = document.getElementById('email')?.value.trim();
+    const message = document.getElementById('message')?.value.trim();
+    if(!name||!email||!message){ alert('Please complete the form.'); return; }
+    alert('Thanks ' + name + '! Message received. 🌿');
+    document.getElementById('contactForm')?.reset();
+  }
+  document.getElementById('contactForm')?.addEventListener('submit', handleContact);
+
+  // CV download
+  function makeCvContent(){
+    return [
+      "Skywalker - Student & Web Creator",
+      "",
+      "Contact: (replace with your email / WhatsApp)",
+      "",
+      "About:",
+      "Student learning coding. Interested in web development and nature-based design.",
+      "",
+      "Skills:",
+      "- HTML, CSS, basic JavaScript",
+      "- Project teamwork & research",
+      "",
+      "Projects:",
+      "- Land Use Study (school project)",
+      "- Mini Portfolio Website",
+      "",
+      "Interests:",
+      "- Gardening & learning about ecosystems",
+      "- Creative digital design",
+      "",
+      "© 2025 Skywalker"
+    ].join("\n");
+  }
+  function downloadCv(){
+    const text = makeCvContent();
+    const blob = new Blob([text], {type:'text/plain'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'Skywalker_CV.txt';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+  document.getElementById('downloadCvBtn')?.addEventListener('click', downloadCv);
+  document.getElementById('cvOpen')?.addEventListener('click', e=>{
+    e.preventDefault();
+    const w = window.open('', '_blank');
+    w.document.write('<pre style="font-family:monospace;padding:20px;">' + makeCvContent().replace(/\n/g,'<br>') + '</pre>');
+  });
+
+  // Share button
+  document.getElementById('shareBtn')?.addEventListener('click', async e=>{
+    e.preventDefault();
+    const shareData = {title:'Skywalker | Portfolio', text:'Check out Skywalker’s site — calm, gold & neat.', url:location.href};
+    if(navigator.share){
+      try{ await navigator.share(shareData); }catch(err){ alert('Share cancelled'); }
+    } else {
+      navigator.clipboard?.writeText(location.href).then(()=>alert('Link copied'),()=>alert('Copy failed'));
+    }
+  });
+});
+</script>
+
+</body>
+</html> 
